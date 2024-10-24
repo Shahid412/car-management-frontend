@@ -28,7 +28,6 @@ const CategoriesList = () => {
     const fetchCategories = async () => {
       try {
         const response = await getCategories();
-        console.log('Fetched categories:', response);
         // Ensure the response is an array
         if (Array.isArray(response)) {
           setCategories(response);

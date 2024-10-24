@@ -19,7 +19,6 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    console.log('dashboard');
     fetchCarCount();
   }, []);
 

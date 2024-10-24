@@ -5,8 +5,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 
 const NavigationBar = () => {
-  const { auth, logout } = React.useContext(AuthContext);
+  const { logout } = React.useContext(AuthContext);
   const navigate = useNavigate();
+  const token = localStorage.getItem('token');
 
   const handleLogout = () => {
     logout();
@@ -21,7 +22,7 @@ const NavigationBar = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
-          {auth.token && (
+          {token && (
             <Nav className='me-auto'>
               <Nav.Link as={Link} to='/dashboard'>
                 Dashboard
@@ -35,7 +36,7 @@ const NavigationBar = () => {
             </Nav>
           )}
           <Nav>
-            {auth.token ? (
+            {token ? (
               <Button variant='outline-light' onClick={handleLogout}>
                 Logout
               </Button>

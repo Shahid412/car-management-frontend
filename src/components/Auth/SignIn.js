@@ -33,11 +33,8 @@ const SignIn = () => {
   const onSubmit = async (values, { setSubmitting }) => {
     try {
       const data = await login(values);
-      console.log(1);
       localStorage.setItem('token', data.token);
-      console.log(2);
       navigate('/dashboard');
-      console.log(3);
     } catch (error) {
       console.log('err', error);
       setServerError(error.response?.data?.message || 'Login failed');
